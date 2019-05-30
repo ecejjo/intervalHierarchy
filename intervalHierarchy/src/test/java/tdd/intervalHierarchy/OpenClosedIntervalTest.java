@@ -33,4 +33,11 @@ public class OpenClosedIntervalTest extends TestCase {
 		ClosedInterval another = new ClosedIntervalBuilder().min(7).max(17).build();
 		assertTrue(one.isIntersected(another));
 	}
+	
+	@Test
+	public void testOpenClosedIsIntersectedOverlapingByBoth() {
+		OpenInterval one = new OpenIntervalBuilder().min(3).max(14).build();
+		ClosedInterval another = new ClosedIntervalBuilder().min(0).max(17).build();
+		assertTrue(one.isIntersected(another));
+	}
 }
