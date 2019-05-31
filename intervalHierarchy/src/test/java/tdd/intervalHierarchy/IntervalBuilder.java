@@ -9,17 +9,17 @@ public class IntervalBuilder {
 	private IntervalType type;
 	
 	IntervalBuilder(){
-		this.min = new Point(0);
-		this.max = new Point(1);
+		this.min = new Point(0, true);
+		this.max = new Point(1, true);
 	}
 	
 	IntervalBuilder min(double min) {
-		this.min = new Point(min);
+		this.min = new Point(min, true);
 		return this;
 	}
 
 	IntervalBuilder max(double max) {
-		this.max = new Point(max);
+		this.max = new Point(max, true);
 		return this;
 	}
 
