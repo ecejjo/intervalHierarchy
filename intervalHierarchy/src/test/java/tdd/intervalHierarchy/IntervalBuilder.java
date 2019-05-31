@@ -33,8 +33,12 @@ public class IntervalBuilder {
 		
 		switch (this.type) {
 		case OPEN:
+			this.min.included = false;
+			this.max.included = false;
 			return new OpenInterval(this.min.value, this.max.value);
 		case CLOSED:
+			this.min.included = true;
+			this.max.included = true;
 			return new ClosedInterval(this.min.value, this.max.value);
 		}
 		return null;
