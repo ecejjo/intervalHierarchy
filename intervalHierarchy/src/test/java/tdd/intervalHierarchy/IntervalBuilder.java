@@ -2,24 +2,24 @@ package tdd.intervalHierarchy;
 
 public class IntervalBuilder {
 
-	private double min;
+	private Point min;
 	
-	private double max;
+	private Point max;
 	
 	private IntervalType type;
 	
 	IntervalBuilder(){
-		this.min = 0;
-		this.max = 1;
+		this.min = new Point(0);
+		this.max = new Point(1);
 	}
 	
 	IntervalBuilder min(double min) {
-		this.min = min;
+		this.min = new Point(min);
 		return this;
 	}
 
 	IntervalBuilder max(double max) {
-		this.max = max;
+		this.max = new Point(max);
 		return this;
 	}
 
@@ -29,13 +29,13 @@ public class IntervalBuilder {
 	}
 
 	Interval build() {
-		assert this.min <= this.max;
+		assert this.min.value <= this.max.value;
 		
 		switch (this.type) {
 		case OPEN:
-			return new OpenInterval(this.min, this.max);
+			return new OpenInterval(this.min.value, this.max.value);
 		case CLOSED:
-			return new ClosedInterval(this.min, this.max);
+			return new ClosedInterval(this.min.value, this.max.value);
 		}
 		return null;
 	}

@@ -8,7 +8,7 @@ public class ClosedIntervalTest extends TestCase {
 
 	@Test
 	public void testIsIntersectedOverlapingByLeft() {
-		Interval one = new IntervalBuilder().type(IntervalType.CLOSED).type(IntervalType.CLOSED).min(3).max(14).build();
+		Interval one = new IntervalBuilder().type(IntervalType.CLOSED).min(3).max(14).build();
 		Interval another = new IntervalBuilder().type(IntervalType.CLOSED).type(IntervalType.CLOSED).min(1).max(7).build();
 		assertTrue(one.isIntersected(another));
 	}
