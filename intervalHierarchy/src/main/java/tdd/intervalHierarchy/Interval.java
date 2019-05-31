@@ -7,8 +7,8 @@ public abstract class Interval {
 	protected Point max;
 
 	public Interval(double min, double max) {
-		this.min = new Point(min, true);
-		this.max = new Point(max, true);
+		this.min = new PointFrom(min, true);
+		this.max = new PointTo(max, true);
 	}
 
 	public boolean isIntersected(Interval another) {
