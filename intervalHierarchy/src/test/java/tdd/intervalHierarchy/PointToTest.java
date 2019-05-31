@@ -22,10 +22,10 @@ public class PointToTest {
 	}
 	
 	@Test
-	public void testPointToIsLeftToEqualsBothIncluded() {
+	public void testPointToIsLeftTo_EqualsBothIncluded() {
 		Point one = new PointTo(3,true);
 		Point other = new PointTo(3, true);
-		assertTrue(one.isLeftTo(other));
+		assertFalse(one.isLeftTo(other));
 	}
 
 	@Test

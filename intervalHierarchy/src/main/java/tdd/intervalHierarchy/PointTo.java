@@ -12,7 +12,7 @@ public class PointTo extends Point {
 		}
 		
 		if (this.included && other.included) {
-			return true;
+			return false;
 		}
 		return ! this.included;
 	}
