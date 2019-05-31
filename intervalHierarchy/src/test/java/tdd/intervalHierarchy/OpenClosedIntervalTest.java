@@ -8,57 +8,57 @@ public class OpenClosedIntervalTest extends TestCase {
 
 	@Test
 	public void testOpenClosedIsIntersectedOverlapingByLeft() {
-		OpenInterval one = new OpenIntervalBuilder().min(3).max(14).build();
-		ClosedInterval another = new ClosedIntervalBuilder().min(1).max(7).build();
+		Interval one = new IntervalBuilder().type(IntervalType.OPEN).min(3).max(14).build();
+		Interval another = new IntervalBuilder().type(IntervalType.CLOSED).min(1).max(7).build();
 		assertTrue(one.isIntersected(another));
 	}
 	
 	@Test
 	public void testOpenClosedIsIntersectedOverlapingByLeftWithEquals() {
-		OpenInterval one = new OpenIntervalBuilder().min(3).max(14).build();
-		ClosedInterval another = new ClosedIntervalBuilder().min(3).max(7).build();
+		Interval one = new IntervalBuilder().type(IntervalType.OPEN).min(3).max(14).build();
+		Interval another = new IntervalBuilder().type(IntervalType.CLOSED).min(3).max(7).build();
 		assertTrue(one.isIntersected(another));
 	}
 	
 	@Test
 	public void testOpenClosedIsIntersectedOverlapingByEquals() {
-		OpenInterval one = new OpenIntervalBuilder().min(3).max(14).build();
-		ClosedInterval another = new ClosedIntervalBuilder().min(3).max(14).build();
+		Interval one = new IntervalBuilder().type(IntervalType.OPEN).min(3).max(14).build();
+		Interval another = new IntervalBuilder().type(IntervalType.CLOSED).min(3).max(14).build();
 		assertTrue(one.isIntersected(another));
 	}
 	
 	@Test
 	public void testOpenClosedIsIntersectedOverlapingByRight() {
-		OpenInterval one = new OpenIntervalBuilder().min(3).max(14).build();
-		ClosedInterval another = new ClosedIntervalBuilder().min(7).max(17).build();
+		Interval one = new IntervalBuilder().type(IntervalType.OPEN).min(3).max(14).build();
+		Interval another = new IntervalBuilder().type(IntervalType.CLOSED).min(7).max(17).build();
 		assertTrue(one.isIntersected(another));
 	}
 	
 	@Test
 	public void testOpenClosedIsIntersectedOverlapingByBoth() {
-		OpenInterval one = new OpenIntervalBuilder().min(3).max(14).build();
-		ClosedInterval another = new ClosedIntervalBuilder().min(0).max(17).build();
+		Interval one = new IntervalBuilder().type(IntervalType.OPEN).min(3).max(14).build();
+		Interval another = new IntervalBuilder().type(IntervalType.CLOSED).min(0).max(17).build();
 		assertTrue(one.isIntersected(another));
 	}
 	
 	@Test
 	public void testIsOpenClosedIntersectedOverlapingByInside() {
-		OpenInterval one = new OpenIntervalBuilder().min(3).max(14).build();
-		ClosedInterval another = new ClosedIntervalBuilder().min(5).max(10).build();
+		Interval one = new IntervalBuilder().type(IntervalType.OPEN).min(3).max(14).build();
+		Interval another = new IntervalBuilder().type(IntervalType.CLOSED).min(5).max(10).build();
 		assertTrue(one.isIntersected(another));
 	}
 
 	@Test
 	public void testOpenClosedIsIntersectedNotOverlapingByLeft() {
-		OpenInterval one = new OpenIntervalBuilder().min(3).max(14).build();
-		ClosedInterval another = new ClosedIntervalBuilder().min(0).max(2).build();
+		Interval one = new IntervalBuilder().type(IntervalType.OPEN).min(3).max(14).build();
+		Interval another = new IntervalBuilder().type(IntervalType.CLOSED).min(0).max(2).build();
 		assertFalse(one.isIntersected(another));
 	}
 	
 	@Test
 	public void testOpenClosedIsIntersectedNotOverlapingByRight() {
-		OpenInterval one = new OpenIntervalBuilder().min(3).max(14).build();
-		ClosedInterval another = new ClosedIntervalBuilder().min(16).max(22).build();
+		Interval one = new IntervalBuilder().type(IntervalType.OPEN).min(3).max(14).build();
+		Interval another = new IntervalBuilder().type(IntervalType.CLOSED).min(16).max(22).build();
 		assertFalse(one.isIntersected(another));
 	}
 }
