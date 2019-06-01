@@ -25,10 +25,7 @@ public class PointTo extends Point {
 		if (this.value != other.value) {
 			return this.isLeftToWhenNoEquals(other);
 		}
-		if (! this.included && ! other.included) {
-			return true;
-		}
-		if (! this.included && other.included) {
+		if (! this.included) {
 			return true;
 		}
 		return (this.included && other.included);
