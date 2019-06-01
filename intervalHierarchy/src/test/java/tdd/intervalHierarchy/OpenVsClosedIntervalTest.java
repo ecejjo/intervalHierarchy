@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 
-public class OpenClosedIntervalTest extends TestCase {
+public class OpenVsClosedIntervalTest extends TestCase {
 
 	@Test
 	public void testOpenClosedIsIntersectedOverlapingByLeft() {

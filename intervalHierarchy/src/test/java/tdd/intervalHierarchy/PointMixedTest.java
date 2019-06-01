@@ -18,7 +18,7 @@ public class PointMixedTest {
 	public void testPointToFrom_Equals_ToIncludedFromNotIncluded() {
 		PointTo pointTo = new PointTo(3, true);
 		PointFrom pointFrom = new PointFrom(3, false);
-		assertFalse(pointTo.isLeftTo(pointFrom));
+		assertTrue(pointTo.isLeftTo(pointFrom));
 	}
 	
 	@Test
