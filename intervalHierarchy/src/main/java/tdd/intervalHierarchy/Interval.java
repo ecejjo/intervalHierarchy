@@ -21,6 +21,14 @@ public class Interval {
 			this.min.included = true;
 			this.max.included = true;
 			break;
+		case OPEN_CLOSED:
+			this.min.included = false;
+			this.max.included = true;
+			break;
+		case CLOSED_OPEN:
+			this.min.included = true;
+			this.max.included = false;
+			break;
 		}
 	}
 
