@@ -6,14 +6,31 @@ public class PointTo extends Point {
 		super(value, included);
 	}
 
-	public boolean isLeftTo(Point other) {
+	@Override
+	public boolean isLeftTo(PointTo other) {
 		if (this.value != other.value) {
 			return this.isLeftToWhenNoEquals(other);
 		}
-		
-		if (this.included && other.included) {
+		if (this.included && ! other.included) {
 			return false;
 		}
-		return ! this.included;
+		if (! this.included && other.included) {
+			return true;
+		}
+		return (! this.included && ! other.included);
+	}
+
+	@Override
+	public boolean isLeftTo(PointFrom other) {
+		if (this.value != other.value) {
+			return this.isLeftToWhenNoEquals(other);
+		}
+		if (! this.included && ! other.included) {
+			return true;
+		}
+		if (! this.included && other.included) {
+			return true;
+		}
+		return (this.included && other.included);
 	}
 }

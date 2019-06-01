@@ -9,36 +9,36 @@ public class PointMixedTest {
 	
 	@Test
 	public void testPointToFrom_Equals_NoneIncluded() {
-		Point pointTo = new PointTo(3, false);
-		Point pointFrom = new PointFrom(3, false);
+		PointTo pointTo = new PointTo(3, false);
+		PointFrom pointFrom = new PointFrom(3, false);
 		assertTrue(pointTo.isLeftTo(pointFrom));
 	}
 
 	@Test
 	public void testPointToFrom_Equals_ToIncludedFromNotIncluded() {
-		Point pointTo = new PointTo(3, true);
-		Point pointFrom = new PointFrom(3, false);
+		PointTo pointTo = new PointTo(3, true);
+		PointFrom pointFrom = new PointFrom(3, false);
 		assertFalse(pointTo.isLeftTo(pointFrom));
 	}
 	
 	@Test
 	public void testPointToFrom_Equals_ToNotIncludedFromIncluded() {
-		Point pointTo = new PointTo(3, false);
-		Point pointFrom = new PointFrom(3, true);
+		PointTo pointTo = new PointTo(3, false);
+		PointFrom pointFrom = new PointFrom(3, true);
 		assertTrue(pointTo.isLeftTo(pointFrom));
 	}
 
 	@Test
 	public void testPointToFrom_Equals_ToIncludedFromIncluded() {
-		Point pointTo = new PointTo(3, true);
-		Point pointFrom = new PointFrom(3, true);
-		assertFalse(pointTo.isLeftTo(pointFrom));
+		PointTo pointTo = new PointTo(3, true);
+		PointFrom pointFrom = new PointFrom(3, true);
+		assertTrue(pointTo.isLeftTo(pointFrom));
 	}
 	
 	@Test
 	public void testPointToFrom_NotEquals_ToNotIncludedFromNotIncluded() {
-		Point pointTo = new PointTo(1, false);
-		Point pointFrom = new PointFrom(3, false);
+		PointTo pointTo = new PointTo(1, false);
+		PointFrom pointFrom = new PointFrom(3, false);
 		assertTrue(pointTo.isLeftTo(pointFrom));
 	}
 

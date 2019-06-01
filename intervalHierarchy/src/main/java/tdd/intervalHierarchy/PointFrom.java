@@ -6,13 +6,26 @@ public class PointFrom extends Point {
 		super(value, included);
 	}
 
-	public boolean isLeftTo(Point other) {
+	public boolean isLeftTo(PointFrom other) {
 		if (this.value != other.value) {
 			return this.isLeftToWhenNoEquals(other);
 		}
-		if (! this.included && ! other.included) {
+		if (this.included) {
 			return true;
 		}
-		return (this.included);
+		return (! this.included && ! other.included);
+	}
+
+	public boolean isLeftTo(PointTo other) {
+		if (this.value != other.value) {
+			return this.isLeftToWhenNoEquals(other);
+		}
+		if (! this.included) {
+			return false;
+		}
+		if (! other.included) {
+			return false;
+		}
+		return true;
 	}
 }

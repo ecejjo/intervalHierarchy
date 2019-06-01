@@ -15,8 +15,8 @@ public class OpenIntervalTest extends TestCase {
 	
 	@Test
 	public void testIsIntersectedOverlapingByLeftWithEquals() {
-		Interval one = new IntervalBuilder().type(IntervalType.OPEN).min(3).max(14).build();
-		Interval another = new IntervalBuilder().type(IntervalType.OPEN).min(1).max(3).build();
+		Interval one = new IntervalBuilder().type(IntervalType.OPEN).min(1).max(3).build();
+		Interval another = new IntervalBuilder().type(IntervalType.OPEN).min(3).max(14).build();
 		assertFalse(one.isIntersected(another));
 	}
 

@@ -11,7 +11,9 @@ public abstract class Point {
 		this.included = included;
 	}
 	
-	public abstract boolean isLeftTo(Point other);
+	public abstract boolean isLeftTo(PointFrom other);
+
+	public abstract boolean isLeftTo(PointTo other);
 	
 	protected boolean isLeftToWhenNoEquals(Point other) {
 		return (this.value < other.value);

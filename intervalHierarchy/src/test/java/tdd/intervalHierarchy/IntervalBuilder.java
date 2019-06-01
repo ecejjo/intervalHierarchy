@@ -30,17 +30,8 @@ public class IntervalBuilder {
 
 	Interval build() {
 		assert this.min.value <= this.max.value;
-		
-		switch (this.type) {
-		case OPEN:
-			this.min.included = false;
-			this.max.included = false;
-			return new OpenInterval(this.min.value, this.max.value);
-		case CLOSED:
-			this.min.included = true;
-			this.max.included = true;
-			return new ClosedInterval(this.min.value, this.max.value);
-		}
-		return null;
+		Interval interval = new Interval(this.min.value, this.max.value);
+		interval.setType(this.type);
+		return interval;		
 	}
 }

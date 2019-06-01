@@ -1,27 +1,39 @@
 package tdd.intervalHierarchy;
 
-public abstract class Interval {
+public class Interval {
 	
-	protected Point min;
+	protected PointFrom min;
 	
-	protected Point max;
+	protected PointTo max;
 
 	public Interval(double min, double max) {
 		this.min = new PointFrom(min, true);
 		this.max = new PointTo(max, true);
 	}
+	
+	public void setType (IntervalType type) {
+		switch (type) {
+		case OPEN:
+			this.min.included = false;
+			this.max.included = false;
+			break;
+		case CLOSED:
+			this.min.included = true;
+			this.max.included = true;
+			break;
+		}
+	}
 
 	public boolean isIntersected(Interval another) {
-		return this.isIncluded(another.min.value) ||
-				this.isIncluded(another.max.value)||
-				another.isIncluded(this.min.value)||
-				another.isEqual(this);
+		return this.isIncluded(another.min) || this.isIncluded(another.max) ||
+				another.isIncluded(this.min) || another.isIncluded(this.max);
 	}
-
-	abstract boolean isIncluded(double value);
-
-	private boolean isEqual(Interval another) {
-		return this.min.value == another.min.value && this.max.value == another.max.value;
+	
+	boolean isIncluded(PointFrom point) {
+		return this.min.isLeftTo(point) && ! this.max.isLeftTo(point);
 	}
-
+	
+	boolean isIncluded(PointTo point) {
+		return this.min.isLeftTo(point) && ! this.max.isLeftTo(point);
+	}
 }
